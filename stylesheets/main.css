@@ -7,3 +7,16 @@ html, body, #map-area {
 	margin: 0;
 	padding: 0;
 }
+
+#notifications {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 95%;
+	height: 50px;
+}
+
+#map-area {
+	background-image: url("world.jpg");
+	background-size: cover;
+}
