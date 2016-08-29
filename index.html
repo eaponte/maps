@@ -16,7 +16,19 @@
 	<div id="map-controls" class="ol-control">
 
 		<button type="button" id="locate-me-btn" title="Find me now"></button>
-		<!-- <button type="button" id="search-btn" title="Search map"></button> -->
+		<button type="button" id="open-search-btn" title="Search map"></button>
+
+	</div>
+
+	<div id="search-box">
+
+		<form>
+
+			<input type="text" id="q" placeholder="Search the map..." onkeypress="checkKey(event)">
+			<button type="button" id="search-btn" title="Search now">Go &raquo;</button>
+			<button type="reset" title="Reset">Reset</button>
+
+		</form>
 
 	</div>
 

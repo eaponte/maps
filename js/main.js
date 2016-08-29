@@ -5,6 +5,7 @@
 	var lon = -74.0059;
 	var lat = 40.7128;
 	var zoomLevel = 3;
+	var query;
 
 // Load generic map with the above longitude, latitude, and zoom level
 
@@ -35,7 +36,7 @@
 		function foundPosition(position) {
 			lon = position.coords.longitude;
 			lat = position.coords.latitude;
-			zoomLevel = 12;
+			zoomLevel = 13;
 			hideMap();
 			document.getElementById("notifications").innerHTML = "Finding your location...";
 			setTimeout(drawMap, 2000);
@@ -70,6 +71,88 @@
 					document.getElementById("notifications").innerHTML = "NO_LOCATION_FOUND...Loading map...";
 					setTimeout(drawMap, 2000);
 					break;
+			}
+		}
+
+// Search feature
+
+	document.getElementById("search-box").style.visibility = "hidden";
+	document.getElementById("search-box").style.opacity = "0";
+
+	/* Wait for a click on the 'open search box' button to toggle the search box view */
+
+		document.getElementById("open-search-btn").addEventListener("click", toggleSearchBox);
+
+	/* Function to toggle the search box view to open or close */
+
+		function toggleSearchBox() {
+			if (document.getElementById("search-box").style.visibility == "visible" || document.getElementById("search-box").style.visibility == "")
+				{
+					document.getElementById("search-box").style.visibility = "hidden";
+					document.getElementById("search-box").style.opacity = "0";
+					document.getElementById("search-box").style.transition = "all .5s ease-in-out";
+					document.getElementById("q").value = "";
+				} else
+					{
+						document.getElementById("search-box").style.visibility = "visible";
+						document.getElementById("search-box").style.opacity = "1";
+						document.getElementById("search-box").style.transition = "opacity .5s ease-in-out";
+					}
+		}
+
+	/* Wait for a click on the search button, or an [Enter] keypress to perform the search */
+
+		document.getElementById("search-btn").addEventListener("click", goSearch);
+
+		function checkKey(e) {
+			if (e.keyCode === 13)
+			{
+				e.preventDefault();
+				goSearch();
+			}
+		}
+
+	/* Function to go perform the search */
+
+		function goSearch() {
+			query = document.getElementById("q").value;
+
+			if (query === undefined || query === "")
+				{
+					document.getElementById("q").value = "Enter a valid location...";
+					return;
+				}
+
+			var xRequest = new XMLHttpRequest();
+
+			/* Send request */
+
+			xRequest.open("GET", "https://nominatim.openstreetmap.org/?q=" + query + "&format=json", true);
+			xRequest.send();
+
+			/* Handle the answer of request */
+
+			xRequest.onreadystatechange = function() {
+				
+				/* If request is successful */
+
+				if (this.readyState === 4 && this.status === 200)
+				{
+					var response = JSON.parse(this.responseText);
+
+					if (response != undefined && response.length === 0)
+					{
+						document.getElementById("q").value = "Location not found...";
+					} else
+						{
+							lon = parseFloat(response[0].lon);
+							lat = parseFloat(response[0].lat);
+							zoomLevel = 13;
+							hideMap();
+							document.getElementById("notifications").innerHTML = "Finding your location...";
+							setTimeout(drawMap, 2000);
+						}
+				}
 			}
 		}
 
@@ -112,5 +195,8 @@
 
 	function hideMap() {
 		document.getElementById("map-controls").style.display = "none";
+		document.getElementById("search-box").style.visibility = "hidden";
+		document.getElementById("search-box").style.opacity = "0";
+		document.getElementById("q").value = "";
 		document.getElementById("map-area").innerHTML = "";
 	}

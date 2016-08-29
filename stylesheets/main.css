@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	font-family: sans-serif;
 }
 
 /*** Containers ***/
@@ -27,6 +28,26 @@ html, body, #map-area {
 	border: 3px solid rgba(0,60,136,.4);
 }
 
+#search-box {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	z-index: 100;
+	top: 186px;
+	left: 80px;
+	/*width: 340px;*/
+	height: 56px;
+	background-color: rgba(255,255,255,.4);
+	border: 3px solid rgba(0,60,136,.4);
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+
+#search-box:hover {
+	background-color: rgba(255,255,255,.6);
+}
+
 #map-area {
 	background-image: url("../images/world.jpg");
 	background-size: cover;
@@ -51,7 +72,7 @@ html, body, #map-area {
 	background-color: rgba(122,122,122,.8);
 }
 
-#locate-me-btn, #search-btn {
+#locate-me-btn, #open-search-btn {
 	width: 50px;
 	height: 50px;
 }
@@ -60,11 +81,39 @@ html, body, #map-area {
 	background-image: url("../images/geolocation-icon.png");
 	background-size: cover;
 	background-repeat: no-repeat;
-	/*margin-bottom: 8px;*/
+	margin-bottom: 3px;
 }
 
-#search-btn {
+#open-search-btn {
 	background-image: url("../images/search-icon.png");
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+#search-box button {
+	font-size: 14px;
+	color: #FFF;
+	background-color: rgba(0,60,136,.5);
+	padding: 3px;
+	border: none;
+	border-radius: 2px;
+}
+
+#search-box button:hover {
+	background-color: rgba(0,60,136,.7);
+}
+
+/*** Forms ***/
+
+#search-box form input {
+	width: 240px;
+	padding:3px;
+	font-size: 16px;
+	color: #5E7889;
+	border: 3px solid rgba(179,23,30,.6);
+	border-radius: 4px;
+}
+
+#search-box form input:hover {
+	border: 3px solid rgba(179,23,30,.8);
 }
