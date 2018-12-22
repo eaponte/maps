@@ -1,18 +1,18 @@
 var CACHE_NAME = 'open-maps-cache-v1';
 var urlsToCache = [
-  '/',
-  '/index.html',
-  '/stylesheets/main.css',
-  '/stylesheets/ol.css',
-  '/js/main.js',
-  '/js/ol.js',
-  '/images/geolocation-icon.png',
-  '/images/pwa-icon-144.png',
-  '/images/pwa-icon-152.png',
-  '/images/pwa-icon-192.png',
-  '/images/pwa-icon-512.png',
-  '/images/search-icon.png',
-  '/images/world.jpg'
+  '/eaponte.github.io/maps',
+  '/eaponte.github.io/maps/index.html',
+  '/eaponte.github.io/maps/stylesheets/main.css',
+  '/eaponte.github.io/maps/stylesheets/ol.css',
+  '/eaponte.github.io/maps/js/main.js',
+  '/eaponte.github.io/maps/js/ol.js',
+  '/eaponte.github.io/maps/images/geolocation-icon.png',
+  '/eaponte.github.io/maps/images/pwa-icon-144.png',
+  '/eaponte.github.io/maps/images/pwa-icon-152.png',
+  '/eaponte.github.io/maps/images/pwa-icon-192.png',
+  '/eaponte.github.io/maps/images/pwa-icon-512.png',
+  '/eaponte.github.io/maps/images/search-icon.png',
+  '/eaponte.github.io/maps/images/world.jpg'
 ];
 
 self.addEventListener('install', function(event) {
