@@ -3,27 +3,27 @@
   "name": "Open Maps",
   "icons": [
     {
-      "src": "/eaponte.github.io/maps/images/pwa-icon-144.png",
+      "src": "/maps/images/pwa-icon-144.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "/eaponte.github.io/maps/images/pwa-icon-152.png",
+      "src": "/maps/images/pwa-icon-152.png",
       "type": "image/png",
       "sizes": "152x152"
     },
     {
-      "src": "/eaponte.github.io/maps/images/pwa-icon-192.png",
+      "src": "/maps/images/pwa-icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/eaponte.github.io/maps/images/pwa-icon-512.png",
+      "src": "/maps/images/pwa-icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/eaponte.github.io/maps",
+  "start_url": "/maps",
   "background_color": "#005093",
   "display": "standalone",
   "scope": "/eaponte.github.io/maps",
