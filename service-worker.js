@@ -1,4 +1,4 @@
-var CACHE_NAME = 'open-maps-cache-v1';
+var CACHE_NAME = 'open-maps-cache-v2';
 var urlsToCache = [
   '/maps',
   '/maps/index.html',
